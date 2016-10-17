@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  
+logging:
+  level: 
+    com.risuit.ignite.autoconfiguration: debug
+    ROOT: info
+    
+spring:
+  apache:
+    ignite:
+      unicast:
+        nodes:
+        - localhost:47500..47520
+      client-mode: false
+      cluster:
+        local-port: 47500
+        local-port-range: 20
+        attributes:
+          ROLE: worker
