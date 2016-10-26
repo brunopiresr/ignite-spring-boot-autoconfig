@@ -3,6 +3,7 @@ package com.cmas.systems.ignite.autoconfiguration;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ignite.configuration.IgniteConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix="spring.apache.ignite")
@@ -16,6 +17,25 @@ public class IgniteProperties {
 	
 	private Multicast multicast;
 	
+	private String workingDirectory;
+	
+	private long metricsLogFrequency = IgniteConfiguration.DFLT_METRICS_LOG_FREQ;
+	
+	public long getMetricsLogFrequency() {
+		return metricsLogFrequency;
+	}
+	
+	public void setMetricsLogFrequency(long metricsLogFrequency) {
+		this.metricsLogFrequency = metricsLogFrequency;
+	}
+	
+	public String getWorkingDirectory() {
+		return workingDirectory;
+	}
+	
+	public void setWorkingDirectory(String workingDirectory) {
+		this.workingDirectory = workingDirectory;
+	}
 	
 	public Unicast getUnicast() {
 		return unicast;
